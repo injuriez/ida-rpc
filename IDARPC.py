@@ -40,6 +40,7 @@ class rpcmod(ida_idaapi.plugmod_t):
             widget = ida_kernwin.get_current_widget()
             view = ida_kernwin.get_widget_type(widget) if widget else None
 
+
             activity = {
                 ida_kernwin.BWN_STRINGS: "Viewing strings",
                 ida_kernwin.BWN_IMPORTS: "Viewing imports",
@@ -49,6 +50,24 @@ class rpcmod(ida_idaapi.plugmod_t):
                 ida_kernwin.BWN_BPTS: "Viewing breakpoints",
                 ida_kernwin.BWN_HEXVIEW: "Viewing hex",
                 ida_kernwin.BWN_FUNCS: "Viewing functions",
+                ida_kernwin.BWN_STKVIEW: "Viewing Stack view",
+                ida_kernwin.BWN_ADDRWATCH: "Viewing Watch List",
+                ida_kernwin.BWN_NAMES: "Viewing names",
+                ida_kernwin.BWN_SEGS: "Viewing segments",
+                ida_kernwin.BWN_XREFS: "Viewing xrefs",
+                ida_kernwin.BWN_TILIST: "Viewing local types",
+                ida_kernwin.BWN_FRAME: f"Viewing stack frame of {name}",
+                ida_kernwin.BWN_SIGNS: "Viewing signatures",
+                ida_kernwin.BWN_PROBS: "Viewing problems",
+                ida_kernwin.BWN_NOTEPAD: "Writing notes",
+                ida_kernwin.BWN_OUTPUT: "Reading output",
+                ida_kernwin.BWN_CLI: "Typing in the console",
+                ida_kernwin.BWN_CPUREGS: "Debugging registers",
+                ida_kernwin.BWN_MODULES: "Debugging modules",
+                ida_kernwin.BWN_THREADS: "Debugging threads",
+                ida_kernwin.BWN_CALL_STACK: "Debugging call stack",
+                ida_kernwin.BWN_LOCALS: "Debugging locals",
+                ida_kernwin.BWN_WATCH: "Debugging watches",
             }.get(view, "") # btw this is a fall back you can change this idc
 
             status = (name, activity)
