@@ -47,7 +47,9 @@ class rpcmod(ida_idaapi.plugmod_t):
                 ida_kernwin.BWN_PSEUDOCODE: f"Decompiling {name}",
                 ida_kernwin.BWN_DISASM: f"Viewing {name}",
                 ida_kernwin.BWN_BPTS: "Viewing breakpoints",
-            }.get(view, "Viewing exports") # btw this is a fall back you can change this idc
+                ida_kernwin.BWN_HEXVIEW: "Viewing hex",
+                ida_kernwin.BWN_FUNCS: "Viewing functions",
+            }.get(view, "") # btw this is a fall back you can change this idc
 
             status = (name, activity)
 
@@ -61,7 +63,7 @@ class rpcmod(ida_idaapi.plugmod_t):
                 )
 
                 self.last_status = status
-                
+
         except Exception as e:
             print(f"[idaRPC] Error: {e}")
             if self.rpc is not None:
