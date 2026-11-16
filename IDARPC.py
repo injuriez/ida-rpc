@@ -55,7 +55,7 @@ class rpcmod(ida_idaapi.plugmod_t):
 
             if status != self.last_status:
                 self.rpc.update(
-                    state=activity[:128],
+                    state=activity[:128] or None,
                     details=f"{filename}",
                     large_image="main_image",
                     name=f"IDA Professional {ida_kernwin.get_kernel_version()}",
@@ -88,6 +88,7 @@ class rpc(ida_idaapi.plugin_t):
     comment = "tung tung"
 
     def init(self):
+        print("[idaRPC] loaded")
         return rpcmod()
 
 
