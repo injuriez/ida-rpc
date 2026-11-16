@@ -61,8 +61,7 @@ class rpcmod(ida_idaapi.plugmod_t):
                 )
 
                 self.last_status = status
-                print("[idaRPC] Presence updated :3")
-
+                
         except Exception as e:
             print(f"[idaRPC] Error: {e}")
             if self.rpc is not None:
